@@ -71,7 +71,7 @@ while 'next_token' in json_response['meta']:
     file_name = directory + "/tweet2019.2_"+ str(num_request) + ".json"
     with open(file_name, "w", encoding="utf-8") as f:
       json.dump(json_response, f)
-    print('Saving content in the file ' file_name)
+    print('Saving content in the file ' + file_name)
     num_request = num_request +1
 
   end = time.time()
