@@ -1,3 +1,4 @@
+import re
 import requests
 import os
 import json
@@ -45,6 +46,10 @@ json_response = ""
 print("Getting tweets")
 response = requests.request("GET", endpoint, headers=headers, params=params)
 json_response = response.json()
+
+if response.status_code != 200:
+  print("error getting tweets: "+ str( json_response["errors"][0]["message"]))
+  exit()
 
 num_request = 1
 with open(directory + "/tweet2019.2_"+ str(num_request) + ".json", "w", encoding="utf-8") as f:
